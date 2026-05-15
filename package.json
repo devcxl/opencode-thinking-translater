@@ -1,0 +1,48 @@
+{
+  "name": "opencode-thinking-translater",
+  "version": "0.1.0",
+  "description": "OpenCode plugin prototype that asks models to emit reasoning in the user's local language.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "oc-plugin": [
+    "server"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./server": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "thinking",
+    "reasoning",
+    "translation"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.14.20"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.14.20",
+    "@types/node": "^24.6.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
