@@ -1,8 +1,10 @@
-# opencode-thinking-translater
+# @devcxl/opencode-thinking-translater
+
+[![npm version](https://img.shields.io/npm/v/@devcxl/opencode-thinking-translater)](https://www.npmjs.com/package/@devcxl/opencode-thinking-translater)
 
 > **Beta** — 核心机制已可用，API 和 hook 接口可能在未来版本中调整。
 
-`opencode-thinking-translater` 是一个 OpenCode Server Plugin 原型，用于验证“让模型用用户本地语言输出 thinking/reasoning 内容”的最小可行路径。
+`@devcxl/opencode-thinking-translater` 是一个 OpenCode Server Plugin，用于让模型用用户本地语言输出 thinking/reasoning 内容。
 
 ## 功能
 
@@ -17,23 +19,38 @@
 - 不在 OpenCode 原生 UI 中原地替换 reasoning 文本。
 - 不使用 `experimental.chat.messages.transform` 改写历史消息。
 
-## 安装开发依赖
+## 安装
 
 ```bash
-npm install
+npm install @devcxl/opencode-thinking-translater
 ```
 
-## 构建
+## 配置
+
+在 `opencode.json` 中注册插件：
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    ["@devcxl/opencode-thinking-translater", { "language": "zh-CN" }]
+  ]
+}
+```
+
+`language` 可省略。省略时插件按顺序读取 `LC_ALL`、`LC_MESSAGES`、`LANG`，无法推断时回退到 `zh-CN`。
+
+## 本地开发
 
 ```bash
+git clone <repo>
+npm install
 npm run typecheck
 npm test
 npm run build
 ```
 
-## 本地使用
-
-构建后，在 OpenCode 配置中注册本地插件路径：
+构建后在 `opencode.json` 中注册本地路径：
 
 ```json
 {
@@ -43,8 +60,6 @@ npm run build
   ]
 }
 ```
-
-`language` 可省略。省略时插件按顺序读取 `LC_ALL`、`LC_MESSAGES`、`LANG`，无法推断时回退到 `zh-CN`。
 
 修改插件配置或构建产物后，需要重启 OpenCode 才会生效。
 
@@ -73,7 +88,7 @@ flowchart TB
         HB -->|不存在| HC["调用 injectReasoningLanguageInstruction()"]
         HB -->|已存在| HZ["跳过（幂等）"]
         HC --> HD["调用 createReasoningLanguageInstruction(language)"]
-        HD --> HE["生成指令文本:\n[opencode-thinking-translater]\nWhen you produce visible reasoning..."]
+        HD --> HE["生成指令文本:\n[@devcxl/opencode-thinking-translater]\nWhen you produce visible reasoning..."]
         HE --> HF["unshift 到 output.system 数组"]
         HF --> HG["logger.debug('已向 system prompt 注入')"]
         HG --> HO["LLM 携带新 system prompt 发起推理"]
