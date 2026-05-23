@@ -57,7 +57,7 @@ describe("插件集成行为", () => {
   })
 
   it("默认导出格式符合 OpenCode 契约", () => {
-    expect(PLUGIN_ID).toBe("opencode-thinking-translater")
+    expect(PLUGIN_ID).toBe("@devcxl/opencode-thinking-translater")
     expect(pluginModule.id).toBe(PLUGIN_ID)
     expect(pluginModule.server).toBe(ThinkingTranslaterPlugin)
   })

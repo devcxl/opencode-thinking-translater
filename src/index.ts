@@ -19,7 +19,7 @@ import { logReasoningEvent } from "./reasoning-event.js"
 import { injectReasoningLanguageInstruction, LANGUAGE_REMINDER_PREFIX } from "./system-prompt.js"
 
 /** 插件唯一标识，用于 OpenCode 插件管理器和去重 */
-export const PLUGIN_ID = "opencode-thinking-translater"
+export const PLUGIN_ID = "@devcxl/opencode-thinking-translater"
 
 /**
  * 插件主函数

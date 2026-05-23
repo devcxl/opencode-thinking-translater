@@ -1,6 +1,6 @@
 {
-  "name": "opencode-thinking-translater",
-  "version": "0.1.0",
+  "name": "@devcxl/opencode-thinking-translater",
+  "version": "0.1.1",
   "description": "OpenCode plugin prototype that asks models to emit reasoning in the user's local language.",
   "type": "module",
   "main": "./dist/index.js",
