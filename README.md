@@ -21,13 +21,7 @@
 
 ## 安装
 
-```bash
-npm install @devcxl/opencode-thinking-translater
-```
-
-## 配置
-
-在 `opencode.json` 中注册插件：
+在 `opencode.json` 的 `plugin` 数组中添加：
 
 ```json
 {
@@ -39,6 +33,8 @@ npm install @devcxl/opencode-thinking-translater
 ```
 
 `language` 可省略。省略时插件按顺序读取 `LC_ALL`、`LC_MESSAGES`、`LANG`，无法推断时回退到 `zh-CN`。
+
+OpenCode 会自动下载并加载插件，无需手动 `npm install`。
 
 ## 本地开发
 
