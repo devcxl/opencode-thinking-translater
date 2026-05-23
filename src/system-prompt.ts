@@ -9,7 +9,7 @@
 import { getInstructionTemplate, getLanguageNativeName } from "./language-names.js"
 
 /** 幂等检测前缀，用于判断本插件是否已注入过语言指令 */
-export const LANGUAGE_REMINDER_PREFIX = "<language-reminder>"
+export const LANGUAGE_REMINDER_PREFIX = "<system-reminder>"
 
 /**
  * 创建推理语言要求指令文本
