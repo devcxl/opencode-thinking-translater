@@ -1,6 +1,6 @@
 {
   "name": "@devcxl/opencode-thinking-translater",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "OpenCode plugin prototype that asks models to emit reasoning in the user's local language.",
   "type": "module",
   "main": "./dist/index.js",
@@ -36,6 +36,9 @@
     "translation"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@opencode-ai/plugin": ">=1.14.20"
   },
