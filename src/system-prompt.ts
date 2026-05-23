@@ -9,7 +9,7 @@
 import { getInstructionTemplate, getLanguageNativeName } from "./language-names.js"
 
 /** 幂等检测前缀，用于判断本插件是否已注入过语言指令 */
-export const LANGUAGE_REMINDER_PREFIX = "<system-reminder>"
+export const LANGUAGE_REMINDER_PREFIX = "<language-reminder>"
 
 /**
  * 创建推理语言要求指令文本
@@ -26,7 +26,7 @@ export const LANGUAGE_REMINDER_PREFIX = "<system-reminder>"
 export function createReasoningLanguageInstruction(language: string): string {
   const name = getLanguageNativeName(language)
   const template = getInstructionTemplate(language)
-  return template.replace("{name}", name)
+  return template.replaceAll("{name}", name)
 }
 
 /**
